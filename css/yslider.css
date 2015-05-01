@@ -1,0 +1,515 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*------------------------------------------------------------
+ノーマライズ
+------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-style:normal;
+	font-weight: normal;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+html{
+	overflow-y: scroll;
+}
+
+body {
+	font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ＭＳ Ｐゴシック", sans-serif;
+	line-height: 1.5;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+input,
+textarea,
+select {
+	margin: 0;
+	padding: 0;
+	vertical-align:middle;
+}
+
+ol,
+ul{
+	list-style:none;
+}
+
+table{
+	border-collapse: collapse; 
+	border-spacing:0;
+}
+
+caption,
+th{
+	text-align: left;
+}
+
+a:focus {
+	outline:none;
+}
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;   
+	border-top: 1px solid #CCC;
+	margin: 10px 0;
+	padding: 0;
+}
+
+img {
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	border-style:none;
+	vertical-align: bottom;
+}
+
+/*------------------------------------------------------------
+サイトレイアウト
+------------------------------------------------------------*/
+/*=========================
+ ヘッダー
+=========================*/
+
+header {
+	padding: 10px;
+	background: #efefef;
+}
+
+/*=========================
+ メインコンテンツ
+=========================*/
+
+.container {
+	padding: 10px;
+}
+
+.ttl-large {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.ttl-medium {
+	margin: 0 0 4px;
+	border-bottom: 1px dotted #007ACC;
+	color: #007ACC;
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+
+.ttl-small {
+	position: relative;
+	padding: 0 0 0 10px;
+	font-weight: bold;
+}
+.ttl-small:before {
+	position: absolute;
+	top: 8px;
+	left: 0px;
+	border: 4px solid #000;
+	content: ""
+}
+
+.column-area {
+	margin: 0 0 20px;
+}
+
+/*=========================
+ フッター
+=========================*/
+
+footer {
+	padding: 10px;
+	font-size: 0.7rem;
+}
+
+/*------------------------------------------------------------
+スライダーstyle
+------------------------------------------------------------*/
+/*=========================
+ スライダーレイアウト
+=========================*/
+
+.slider-area {
+	clear: both;
+	margin: 0 0 20px;
+}
+
+.slider-block {
+	text-align: center;
+}
+
+.slider-box {
+	padding: 5px;
+	border: 1px solid #ccc;
+}
+
+.slide-img {
+	margin: 0 0 5px;
+	text-align: center;
+}
+.slide-txt {
+	font-size: 0.75rem;
+}
+
+/*=========================
+ ページャレイアウト
+=========================*/
+
+.pager-area {
+	position: relative;
+	clear: both;
+	margin: 15px 0;
+	padding: 0 10px;
+	line-height: 1;
+	text-align: center;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.pager-area a {
+	display: inline-block;
+	margin: 0 5px;
+	width: 14px;
+	height: 14px;
+	border-radius: 7px;
+	background: #CCC;
+	line-height: 14px;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.pager-area a.active {
+	background: #0198ff;
+}
+
+.list-arrow-mark {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	margin: -8px -2px 0 0;
+	width: 4px;
+	height: 16px;
+	z-index: 0;
+}
+.list-arrow-mark:before {
+	position: absolute;
+	height: 50%;
+	width: 100%;
+	background: #666;
+	-webkit-transform: skew(36deg, 0deg);
+	transform: skew(36deg, 0deg);
+	content: "";
+}
+.list-arrow-mark:after {
+	position: absolute;
+	top: 50%;
+	height: 50%;
+	width: 100%;
+	background: #666;
+	-webkit-transform: skew(-36deg, 0deg);
+	transform: skew(-36deg, 0deg);
+	content: "";
+}
+.list-arrow-mark.reverse {
+	left: 4px;
+}
+.list-arrow-mark.reverse:before {
+	-webkit-transform: skew(-36deg, 0deg);
+	transform: skew(-36deg, 0deg);
+}
+.list-arrow-mark.reverse:after {
+	-webkit-transform: skew(36deg, 0deg);
+	transform: skew(36deg, 0deg);
+}
+.slide-btn {
+	position: absolute;
+	display: block;
+	top: 50%;
+	height: 30px;
+	margin-top: -15px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background: #0099ff;
+	color: #ffffff;
+	font-size: 12px;
+	line-height: 30px;
+	z-index: 10;
+}
+.slide-btn.prev-switch {
+	left: 0px;
+	padding: 0 10px 0 20px;
+}
+.slide-btn.next-switch {
+	right: 0px;
+	padding: 0 20px 0 10px;
+}
+.slide-btn .list-arrow-mark:before {
+	background: #ffffff;
+}
+.slide-btn .list-arrow-mark:after {
+	background: #ffffff;
+}
+
+/*------------------------------------------------------------
+汎用class
+------------------------------------------------------------*/
+/*=========================
+ 配置
+=========================*/
+
+.both {
+	clear: both;
+}
+.fl-left {
+	float: left;
+}
+.fl-right {
+	float: right;
+}
+.align-left {
+	text-align: left;
+}
+.align-center {
+	text-align: center;
+}
+.align-right {
+	text-align: right;
+}
+
+/*=========================
+ 余白調整
+=========================*/
+
+.mt00 {
+	margin-top: 0px;
+}
+.mt05 {
+	margin-top: 5px;
+}
+.mt10 {
+	margin-top: 10px;
+}
+.mt15 {
+	margin-top: 15px;
+}
+.mt20 {
+	margin-top: 20px;
+}
+.mr00 {
+	margin-right: 0px;
+}
+.mr05 {
+	margin-right: 5px;
+}
+.mr10 {
+	margin-right: 10px;
+}
+.mr15 {
+	margin-right: 15px;
+}
+.mr20 {
+	margin-right: 20px;
+}
+.mb00 {
+	margin-bottom: 0px;
+}
+.mb05 {
+	margin-bottom: 5px;
+}
+.mb10 {
+	margin-bottom: 10px;
+}
+.mb15 {
+	margin-bottom: 15px;
+}
+.mb20 {
+	margin-bottom: 20px;
+}
+.ml00 {
+	margin-left: 0px;
+}
+.ml05 {
+	margin-left: 5px;
+}
+.ml10 {
+	margin-left: 10px;
+}
+.ml15 {
+	margin-left: 15px;
+}
+.ml20 {
+	margin-left: 20px;
+}
+
+.pt00 {
+	padding-top: 0px;
+}
+.pt05 {
+	padding-top: 5px;
+}
+.pt10 {
+	padding-top: 10px;
+}
+.pt15 {
+	padding-top: 15px;
+}
+.pt20 {
+	padding-top: 20px;
+}
+.pr00 {
+	padding-right: 0px;
+}
+.pr05 {
+	padding-right: 5px;
+}
+.pr10 {
+	padding-right: 10px;
+}
+.pr15 {
+	padding-right: 15px;
+}
+.pr20 {
+	padding-right: 20px;
+}
+.pb00 {
+	padding-bottom: 0px;
+}
+.pb05 {
+	padding-bottom: 5px;
+}
+.pb10 {
+	padding-bottom: 10px;
+}
+.pb15 {
+	padding-bottom: 15px;
+}
+.pb20 {
+	padding-bottom: 20px;
+}
+.pl00 {
+	padding-left: 0px;
+}
+.pl05 {
+	padding-left: 5px;
+}
+.pl10 {
+	padding-left: 10px;
+}
+.pl15 {
+	padding-left: 15px;
+}
+.pl20 {
+	padding-left: 20px;
+}
+
+.letter-spacing01 {
+	letter-spacing: -0.1em;
+}
+
+/*=========================
+ 文字色・強調・インデント
+=========================*/
+
+.col-orange {
+	color: #E66600;
+}
+.col-red {
+	color: #E00000;
+}
+.col-green {
+	color: #0b9604;
+}
+.col-lightblue {
+	color: #4eabd6;
+}
+
+.txt-strong {
+	font-weight: bold;
+}
+
+.txt-indent {
+	padding-left: 1em;
+	text-indent: -1em;
+}
+
+.font-xxlarge {
+	font-size: 137%;
+}
+.font-xlarge {
+	font-size: 125%;
+}
+.font-large {
+	font-size: 112%;
+}
+.font-medium {
+	font-size: 100%;
+}
+.font-small {
+	font-size: 87%;
+}
+.font-xsmall {
+	font-size: 75%;
+}
+.font-xxsmall {
+	font-size: 62%;
+}
+
+/*=========================
+ リストマーク・番号リスト
+=========================*/
+
+.list-num {
+	margin-left: 24px;
+	list-style-type: decimal;
+}
+.list-disc {
+	margin-left: 20px;
+	list-style-type: disc;
+}
+.list-circle {
+	margin-left: 20px;
+	list-style-type: circle;
+}
+
+/*=========================
+ clearfix
+=========================*/
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	font-size: 0.1em;
+	line-height: 0;
+}
